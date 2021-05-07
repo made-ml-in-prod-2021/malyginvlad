@@ -13,6 +13,6 @@ def test_train_metrics():
 
     assert {"precision", "recall", "f1_score"} == metrics.keys(), f"Unexpected metrics output {metrics.keys()}"
     assert metrics["f1_score"] > .5, f"F1 score {metrics['f1_score']} < 0.5"
-    assert os.path.exists(params.output_model_path), f"No such file {params.output_model_path}"
-    assert os.path.exists(params.metric_path), f"No such file {params.metric_path}"
+    assert os.path.isfile(params.output_model_path), f"No such file {params.output_model_path}"
+    assert os.path.isfile(params.metric_path), f"No such file {params.metric_path}"
 

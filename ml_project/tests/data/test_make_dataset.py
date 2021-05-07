@@ -13,7 +13,7 @@ TEST_SIZE = 300
 @pytest.fixture()
 def df_test() -> pd.DataFrame:
     
-    df_train = read_data()
+    df_train = read_data(TRAIN_DATASET_PATH)
     columns = list(df_train.columns)
     test_data = {
         col: np.random.choice(df_train[col].unique(), size=TEST_SIZE) for col in columns
@@ -26,10 +26,11 @@ def df_test() -> pd.DataFrame:
 
 def test_load_dataset(df_test):
 
-    df_train = read_data()
+    df_train = read_data(TRAIN_DATASET_PATH)
+    sum_null = df_test.isnull().sum().sum()
 
     assert df_test.shape[0] == TEST_SIZE
-    assert df_test.isna().sum().sum() >= 0, "Test data does not have NaNs"
+    assert sum_null == 0, f"Test data does not have NaNs (now {sum_null} NaNs)"
     assert list(df_test.columns).sort() == list(df_train.columns).sort(), \
         "Test columns and train columns are not equal"
 

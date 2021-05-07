@@ -5,8 +5,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler, MinMaxScaler
 
-from ml_project.entities.feature_params import FeatureParams
-from ml_project.entities.preprocessing_params import PreprocessingParams
+from ml_project.entities import FeatureParams, PreprocessingParams
 
 
 def build_categorical_pipeline() -> Pipeline:

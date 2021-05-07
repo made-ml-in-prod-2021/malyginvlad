@@ -53,9 +53,9 @@ def test_transform_features(df_test, feature_params):
         elif scaler == "MinMaxScaler":
             assert np.all(abs(numerical_features) <= 1), \
                 "After MinMaxScaler scaled features are outside of [-1, 1]"
-
-        assert features.isna().sum().sum() == 0, \
-            "NaNs are present after transform"
+        
+        sum_null = features.isnull().sum().sum()
+        assert sum_null == 0, f"NaNs are present after transform (now {sum_null} NaNs)"
         assert features.shape[0] == df_test.shape[0], \
             "Features must contain the same number of rows as original data"
         assert features.shape[1] > df_test.shape[1], \

@@ -1,6 +1,6 @@
 import pickle
 from typing import Tuple
-from py._path.local import LocalPath
+from pathlib import Path
 
 import pytest
 import pandas as pd
@@ -46,7 +46,7 @@ def test_train_model(get_features_and_target: Tuple[pd.DataFrame, pd.Series]):
     assert predicted_shape == target.shape[0], f"Predicted shape {predicted_shape} while should be {target.shape[0]}"
 
 
-def test_save_model(tmpdir: LocalPath):
+def test_save_model(tmpdir: Path):
 
     model = RandomForestClassifier(n_estimators=50)
     expected_path = tmpdir.join("model.pkl")

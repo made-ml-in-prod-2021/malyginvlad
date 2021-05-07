@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 from ml_project.entities import SplittingParams
 
 
-def read_data(path: str = "ml_project/data/raw/heart.csv") -> pd.DataFrame:
+def read_data(path: str) -> pd.DataFrame:
 
     data = pd.read_csv(path)
 

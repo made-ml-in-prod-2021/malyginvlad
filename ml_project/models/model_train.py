@@ -54,8 +54,9 @@ def save_model(
     model: RandomForestClassifier,
     output: str
 ) -> str:
-
+    
+    # версия протокола 0, для совместимости всех версий
     with open(output, "wb") as file:
-        pickle.dump(model, file)
+        pickle.dump(model, file, protocol=0)
 
     return output
