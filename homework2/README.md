@@ -2,7 +2,7 @@
 #### Нулевой этап:
 ```shell script
 $ git clone https://github.com/made-ml-in-prod-2021/malyginvlad.git
-$ cd malyginvlad
+$ cd malyginvlad/homework2
 ```
 #### Дальше необходимо установить текущий проект:
 ```shell script
