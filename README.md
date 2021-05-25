@@ -1,4 +1,3 @@
-=======
 ## Homework 1
 
 Данные для проекта: [датасет](https://www.kaggle.com/ronitf/heart-disease-uci)
