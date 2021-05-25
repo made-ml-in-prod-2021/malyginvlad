@@ -3,6 +3,9 @@ import numpy as np
 
 
 class InputParams(BaseModel):
+    """
+    Input params.
+    """
     age: int = Field(default=13)
     sex: int = Field(default=0)
     cp: int = Field(default=2)
@@ -20,6 +23,7 @@ class InputParams(BaseModel):
     
     @validator('age')
     def check_age(cls, age):
+        """Check age values."""
         
         if age < 0:
             raise ValueError(f"The 'age' field must be positive number, but it is {age}")
@@ -28,6 +32,7 @@ class InputParams(BaseModel):
     
     @validator('sex')
     def check_sex(cls, sex):
+        """Check sex values."""
         
         if not 0 <= sex < 2:
             raise ValueError(f"The 'sex' field must be 0 or 1, but it is {sex}")
@@ -36,6 +41,7 @@ class InputParams(BaseModel):
     
     @validator('oldpeak')
     def check_exang(cls, oldpeak):
+        """Check exang values."""
         
         if not isinstance(oldpeak, float):
             raise ValueError(f"The 'oldpeak' field must be float, but it is {type(oldpeak)}")

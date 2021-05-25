@@ -10,6 +10,9 @@ client = TestClient(app)
 
 
 def test_start_server():
+    """
+    Testing run server
+    """
     
     with TestClient(app) as client:
         response = client.get("/")
@@ -18,6 +21,9 @@ def test_start_server():
         
 
 def test_predict():
+    """
+    Testing predict models
+    """
     
     with TestClient(app) as client:
         test_data = read_dataset(DATA_PATH)
@@ -40,6 +46,9 @@ def test_predict():
 
         
 def test_validation_values():
+    """
+    Testing validation data
+    """
     
     with TestClient(app) as client:
         test_data = read_dataset(DATA_PATH)

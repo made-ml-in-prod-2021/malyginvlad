@@ -21,12 +21,18 @@ app = FastAPI()
 
 @app.get("/")
 def main() -> str:
+    """
+    Main page
+    """
     
     return "Hello, it is a first page for your predictions."
 
 
 @app.on_event("startup")
 def load_model() -> Pipeline:
+    """
+    Load model
+    """
     
     global model
     model_path = os.getenv("PATH_MODEL", "models/model.pkl")
@@ -42,12 +48,18 @@ def load_model() -> Pipeline:
 
 @app.get("/health")
 def health() -> bool:
+    """
+    Check health
+    """
     
     return not (model is None)
 
 
 @app.post("/predict")
 def predict(request: InputParams) -> PredictParams:
+    """
+    Predict results
+    """
     
     return make_predict(request, model)
 
